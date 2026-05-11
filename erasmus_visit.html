@@ -253,8 +253,35 @@
 
 <div id="deck">
 
+  <!-- ── SLIDE 0 – Welcome Signs ── -->
+  <div class="slide active" id="s0" style="background:#eeeeee;justify-content:center;align-items:center;gap:36px;">
+    <div style="width:410px;height:420px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.18);border:2px solid #E30A17;display:flex;flex-direction:column;">
+      <div style="background:#E30A17;padding:18px 32px;display:flex;align-items:center;gap:14px;">
+        <img src="https://flagcdn.com/w80/tr.png" style="height:30px;border-radius:3px;box-shadow:0 2px 6px rgba(0,0,0,.3);">
+        <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:.14em;">TÜRKİYE</span>
+      </div>
+      <div style="background:#fff;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#bbb;margin-bottom:18px;">Türkçe · Turkish</div>
+        <div style="font-family:'Playfair Display',serif;font-size:68px;line-height:1.1;color:#E30A17;margin-bottom:14px;">Hoş Geldiniz</div>
+        <div style="font-size:15px;color:#888;">Welcome — Καλώς ήρθατε</div>
+      </div>
+    </div>
+    <div style="width:410px;height:420px;border-radius:14px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.18);border:2px solid #DC143C;display:flex;flex-direction:column;">
+      <div style="background:#DC143C;padding:18px 32px;display:flex;align-items:center;gap:14px;">
+        <img src="https://flagcdn.com/w80/pl.png" style="height:30px;border-radius:3px;box-shadow:0 2px 6px rgba(0,0,0,.3);">
+        <span style="font-size:13px;font-weight:600;color:#fff;letter-spacing:.14em;">POLSKA</span>
+      </div>
+      <div style="background:#fff;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 32px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#bbb;margin-bottom:18px;">Polski · Polish</div>
+        <div style="font-family:'Playfair Display',serif;font-size:68px;line-height:1.1;color:#DC143C;margin-bottom:14px;">Witajcie</div>
+        <div style="font-size:15px;color:#888;">Welcome — Καλώς ήρθατε</div>
+      </div>
+    </div>
+    <div class="counter">1 / 4</div>
+  </div>
+
   <!-- ── SLIDE 1 ── -->
-  <div class="slide active" id="s1">
+  <div class="slide" id="s1">
     <div class="stripe"></div>
     <div class="left" style="width:100%;align-items:center;text-align:center;padding:60px 80px;">
       <span class="date-badge">Tuesday 19/05/2026</span>
@@ -266,7 +293,7 @@
         <img src="https://flagcdn.com/w80/tr.png" alt="Turkey" style="height:48px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.3);">
       </div>
     </div>
-    <div class="counter">1 / 3</div>
+    <div class="counter">2 / 4</div>
   </div>
 
   <!-- ── SLIDE 2 ── -->
@@ -289,7 +316,7 @@
         <h3>Mobile-Friendly</h3>
       </div>
     </div>
-    <div class="counter">2 / 3</div>
+    <div class="counter">3 / 4</div>
   </div>
 
   <!-- ── SLIDE 3 ── -->
@@ -324,7 +351,7 @@
         📁 <a href="https://1drv.ms/f/c/33917aad74a809a9/IgD3y3drC5ArQKHDgPwiNQE3Ab5AKMM6G9mVQfqk6oHiPTY?e=hyiMfx" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none;letter-spacing:.03em;">Shared Student Work</a>
       </p>
     </div>
-    <div class="counter">3 / 3</div>
+    <div class="counter">4 / 4</div>
   </div>
 
 </div>
@@ -335,6 +362,7 @@
   <div class="nav-dot on" onclick="goTo(0)"></div>
   <div class="nav-dot" onclick="goTo(1)"></div>
   <div class="nav-dot" onclick="goTo(2)"></div>
+  <div class="nav-dot" onclick="goTo(3)"></div>
   <button class="nav-btn" id="next" onclick="go(1)">Next →</button>
 </div>
 
