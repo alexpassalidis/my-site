@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Erasmus Visit – Polichni Junior High School</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #1a2744;
+    --gold:   #c8922a;
+    --cream:  #faf7f2;
+    --muted:  #6b7a99;
+    --white:  #ffffff;
+    --accent: #e8d5a3;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    background: #111827;
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+  }
+
+  /* ── slide container ── */
+  #deck {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .slide {
+    display: none;
+    width: 960px; height: 540px;
+    position: relative;
+    background: var(--cream);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,.6);
+    animation: fadeIn .45s ease;
+  }
+  .slide.active { display: flex; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── shared stripe ── */
+  .stripe {
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 7px;
+    background: linear-gradient(to bottom, var(--gold), #8b5e15);
+  }
+
+  /* ── slide counter ── */
+  .counter {
+    position: absolute; bottom: 22px; right: 30px;
+    font-size: 11px; letter-spacing: .12em;
+    color: var(--muted); font-weight: 500;
+  }
+
+  /* ── EU badge ── */
+  .eu-badge {
+    position: absolute; top: 22px; right: 28px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .eu-stars {
+    font-size: 16px; letter-spacing: -1px;
+    color: var(--gold);
+  }
+  .eu-label {
+    font-size: 10px; font-weight: 500; letter-spacing: .14em;
+    color: var(--muted); text-transform: uppercase;
+  }
+
+  /* ════════════════════════════
+     SLIDE 1 – Agenda
+  ════════════════════════════ */
+  #s1 {
+    flex-direction: row;
+  }
+  #s1 .left {
+    width: 300px; flex-shrink: 0;
+    background: var(--navy);
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 48px 36px;
+  }
+  #s1 .left .date-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: #fff; font-size: 11px; font-weight: 500;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px;
+    margin-bottom: 22px; align-self: flex-start;
+  }
+  #s1 .left h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; line-height: 1.25;
+    color: #fff; margin-bottom: 10px;
+  }
+  #s1 .left .sub {
+    font-size: 13px; color: #8fa3cc; line-height: 1.5;
+  }
+  #s1 .left .flags {
+    margin-top: 28px; font-size: 24px; letter-spacing: 4px;
+  }
+  #s1 .right {
+    flex: 1; padding: 44px 44px 44px 40px;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 0;
+  }
+  .agenda-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(26,39,68,.1);
+  }
+  .agenda-item:last-child { border-bottom: none; }
+  .agenda-num {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: var(--navy); color: #fff;
+    font-size: 11px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .agenda-text strong {
+    display: block; font-size: 14px; font-weight: 500;
+    color: var(--navy); margin-bottom: 2px;
+  }
+  .agenda-text span {
+    font-size: 12px; color: var(--muted);
+  }
+
+  /* ════════════════════════════
+     SLIDE 2 – Ψηφιακά Εργαλεία
+  ════════════════════════════ */
+  #s2 {
+    flex-direction: column;
+    padding: 52px 64px 48px 80px;
+    justify-content: center;
+  }
+  #s2 .tag {
+    font-size: 11px; font-weight: 500; letter-spacing: .14em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 12px;
+  }
+  #s2 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px; color: var(--navy);
+    line-height: 1.2; margin-bottom: 8px;
+  }
+  #s2 .lead {
+    font-size: 14px; color: var(--muted);
+    max-width: 580px; line-height: 1.6; margin-bottom: 36px;
+  }
+  .cards {
+    display: flex; gap: 20px;
+  }
+  .card {
+    flex: 1; background: var(--white);
+    border-radius: 10px; padding: 22px 20px;
+    box-shadow: 0 4px 20px rgba(26,39,68,.08);
+    border-top: 3px solid var(--gold);
+  }
+  .card-icon {
+    font-size: 26px; margin-bottom: 10px;
+  }
+  .card h3 {
+    font-size: 13px; font-weight: 600;
+    color: var(--navy); margin-bottom: 6px;
+  }
+  .card p {
+    font-size: 12px; color: var(--muted); line-height: 1.55;
+  }
+
+  /* ════════════════════════════
+     SLIDE 3 – Mission X
+  ════════════════════════════ */
+  #s3 {
+    flex-direction: column;
+    padding: 0;
+  }
+  #s3 .top-band {
+    background: var(--navy);
+    padding: 38px 80px 32px;
+    flex-shrink: 0;
+  }
+  #s3 .top-band .tag {
+    font-size: 11px; font-weight: 500; letter-spacing: .14em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 10px;
+  }
+  #s3 .top-band h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; color: #fff; line-height: 1.2;
+  }
+  #s3 .top-band .sub {
+    font-size: 13px; color: #8fa3cc; margin-top: 6px; max-width: 560px;
+  }
+  #s3 .bottom-area {
+    flex: 1; padding: 28px 80px;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 14px;
+  }
+  .mx-row {
+    display: flex; gap: 16px;
+  }
+  .mx-item {
+    flex: 1; display: flex; align-items: center; gap: 14px;
+    background: var(--white);
+    border-radius: 8px; padding: 14px 18px;
+    box-shadow: 0 2px 12px rgba(26,39,68,.07);
+  }
+  .mx-icon {
+    font-size: 22px; flex-shrink: 0;
+  }
+  .mx-item strong {
+    font-size: 13px; font-weight: 600; color: var(--navy);
+    display: block; margin-bottom: 2px;
+  }
+  .mx-item span {
+    font-size: 11.5px; color: var(--muted);
+  }
+  .esa-note {
+    font-size: 11px; color: var(--muted);
+    padding: 10px 0 0; letter-spacing: .04em;
+  }
+  .esa-note strong { color: var(--gold); }
+
+  /* ── nav ── */
+  #nav {
+    position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 12px; align-items: center;
+  }
+  .nav-btn {
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.2);
+    color: #fff; font-size: 13px; font-weight: 500;
+    padding: 9px 24px; border-radius: 30px; cursor: pointer;
+    letter-spacing: .05em; transition: background .2s;
+    backdrop-filter: blur(8px);
+  }
+  .nav-btn:hover { background: rgba(255,255,255,.22); }
+  .nav-btn:disabled { opacity: .3; cursor: default; }
+  .nav-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(255,255,255,.25); cursor: pointer;
+    transition: background .2s;
+  }
+  .nav-dot.on { background: var(--gold); }
+</style>
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- ── SLIDE 1 ── -->
+  <div class="slide active" id="s1">
+    <div class="stripe"></div>
+    <div class="left" style="width:100%;align-items:center;text-align:center;padding:60px 80px;">
+      <span class="date-badge">Tuesday 19/05/2026</span>
+      <h1 style="font-size:42px;margin-bottom:16px;">Welcome to Our School!</h1>
+      <p class="sub" style="font-size:16px;">3rd Gymnasium of Polichni</p>
+      <div style="margin-top:36px;display:flex;gap:20px;justify-content:center;align-items:center;">
+        <img src="https://flagcdn.com/w80/gr.png" alt="Greece" style="height:48px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+        <img src="https://flagcdn.com/w80/pl.png" alt="Poland" style="height:48px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+        <img src="https://flagcdn.com/w80/tr.png" alt="Turkey" style="height:48px;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.3);">
+      </div>
+    </div>
+    <div class="counter">1 / 3</div>
+  </div>
+
+  <!-- ── SLIDE 2 ── -->
+  <div class="slide" id="s2">
+    <div class="stripe"></div>
+    <div class="tag">Digital Teaching</div>
+    <h2>HTML Sites &<br>Worksheets</h2>
+    <p class="lead">Creating themed web pages that serve as interactive learning environments — no external tools required, running directly in the browser.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Themed Websites</h3>
+      </div>
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>Worksheets</h3>
+      </div>
+      <div class="card">
+        <div class="card-icon">📱</div>
+        <h3>Mobile-Friendly</h3>
+      </div>
+    </div>
+    <div class="counter">2 / 3</div>
+  </div>
+
+  <!-- ── SLIDE 3 ── -->
+  <div class="slide" id="s3">
+    <div class="stripe"></div>
+    <div class="top-band">
+      <div class="tag">ESA Educational</div>
+      <h2>Mission X: Train Like an Astronaut</h2>
+    </div>
+    <div class="bottom-area">
+      <div class="mx-row">
+        <div class="mx-item">
+          <div class="mx-icon">🚀</div>
+          <div><strong>Mission & Goals</strong></div>
+        </div>
+        <div class="mx-item">
+          <div class="mx-icon">🏃</div>
+          <div><strong>Activities</strong></div>
+        </div>
+      </div>
+      <div class="mx-row">
+        <div class="mx-item">
+          <div class="mx-icon">📊</div>
+          <div><strong>Student Work</strong></div>
+        </div>
+        <div class="mx-item">
+          <div class="mx-icon">🌍</div>
+          <div><strong>International Dimension</strong></div>
+        </div>
+      </div>
+      <p class="esa-note" style="margin-top:14px;">
+        📁 <a href="https://1drv.ms/f/c/33917aad74a809a9/IgD3y3drC5ArQKHDgPwiNQE3Ab5AKMM6G9mVQfqk6oHiPTY?e=hyiMfx" target="_blank" style="color:var(--gold);font-weight:600;text-decoration:none;letter-spacing:.03em;">Shared Student Work</a>
+      </p>
+    </div>
+    <div class="counter">3 / 3</div>
+  </div>
+
+</div>
+
+<!-- ── Navigation ── -->
+<div id="nav">
+  <button class="nav-btn" id="prev" onclick="go(-1)" disabled>← Back</button>
+  <div class="nav-dot on" onclick="goTo(0)"></div>
+  <div class="nav-dot" onclick="goTo(1)"></div>
+  <div class="nav-dot" onclick="goTo(2)"></div>
+  <button class="nav-btn" id="next" onclick="go(1)">Next →</button>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.nav-dot');
+  let cur = 0;
+
+  function goTo(n) {
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('on');
+    cur = n;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('on');
+    document.getElementById('prev').disabled = cur === 0;
+    document.getElementById('next').disabled = cur === slides.length - 1;
+  }
+
+  function go(d) { goTo(cur + d); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' && cur < slides.length - 1) go(1);
+    if (e.key === 'ArrowLeft'  && cur > 0) go(-1);
+  });
+</script>
+</body>
+</html>
